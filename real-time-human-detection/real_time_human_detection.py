@@ -8,6 +8,11 @@ import time
 import cv2
 import djitellopy as t
 
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-p", "--picamera", type=int, default=-1, help="Whether or not the Raspberry pi camera should be used.")
+args = vars(ap.parse_args())
+
 CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
 	"bottle", "bus", "car", "cat", "chair", "cow", "diningtable",
 	"dog", "horse", "motorbike", "person", "pottedplant", "sheep",
