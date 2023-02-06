@@ -6,7 +6,6 @@ import argparse
 import imutils
 import time
 import cv2
-import djitellopy as t
 
 
 ap = argparse.ArgumentParser()
