@@ -1,4 +1,4 @@
-
+#importing libraries
 from imutils.video import VideoStream
 from imutils.video import FPS
 import numpy as np
@@ -7,11 +7,12 @@ import imutils
 import time
 import cv2
 
-
+#parsing argument for using camera (Webcam or PiCamera).
 ap = argparse.ArgumentParser()
 ap.add_argument("-p", "--picamera", type=int, default=-1, help="Whether or not the Raspberry pi camera should be used.")
 args = vars(ap.parse_args())
 
+#Defining Classes 
 CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
 	"bottle", "bus", "car", "cat", "chair", "cow", "diningtable",
 	"dog", "horse", "motorbike", "person", "pottedplant", "sheep",
@@ -30,6 +31,7 @@ fps = FPS().start()
 # loop over the frames from the video stream
 while True:
 	# grab the frame from the threaded video stream and resize it
+	c = 1
 	frame = vs.read()
 	frame = imutils.resize(frame, width=800)
 
@@ -51,7 +53,7 @@ while True:
 
 		# filter out weak detections by ensuring the `confidence` is
 		# greater than the minimum confidence
-		if confidence > 0.2:
+		if confidence > 0.4:
 			# extract the index of the class label from the
 			# `detections`, then compute the (x, y)-coordinates of
 			# the bounding box for the object
@@ -62,14 +64,20 @@ while True:
 			# draw the prediction on the frame
 			label = "{}: {:.2f}%".format(CLASSES[idx],
 				confidence * 100)
-			cv2.rectangle(frame, (startX, startY), (endX, endY),
-				COLORS[idx], 2)
-			y = startY - 15 if startY - 15 > 15 else startY + 15
-			cv2.putText(frame, label, (startX, y),
-				cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLORS[idx], 2)
-
+			if label[0:6]=='person':
+				c += 1
+			if label[0:6]=='person' or label[0:3]=='dog' or label[0:3]=='cat':
+				cv2.rectangle(frame, (startX, startY), (endX, endY),
+					COLORS[idx], 2)
+				y = startY - 15 if startY - 15 > 15 else startY + 15
+				cv2.putText(frame, label, (startX, y),
+					cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLORS[idx], 2)
+	
+	cv2.putText(frame, f'Total People: {c-1}',(20,40), cv2.FONT_HERSHEY_DUPLEX, 1.5, (255, 255, 255), 1)
+			
+	print(f"Humans in frame: {c-1}")
 	# show the output frame
-	cv2.imshow("Frame", frame)
+	cv2.imshow("Video Feed", frame)
 	key = cv2.waitKey(1) & 0xFF
 
 	# if the `q` key was pressed, break from the loop
