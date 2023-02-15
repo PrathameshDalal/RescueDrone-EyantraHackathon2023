@@ -33,5 +33,87 @@ HARDWARE USED
 
 
 
+Softwares: 
+
+• Raspbian OS
+
+• Command-line 
+
+• Mission-planner 
+
+• Q-ground Controller
+
+
+
+Onboard electronics and sensors: 
+
+• Receiver for manual controlling over transmitter
+
+• Raspberry Pi - Model 4B 
+
+• Pixhawk flight controller 
+
+• GPS module and buzzer 
+
+• Power distribution board 
+
+• 12V - 5V DC-DC buck convertor 
+
+• Ultrasonic sensor 
+
+• Raspberry pi camera 
+
+• Buzzer 
+
+• Safety switch 
+
+• Power distribution board 
+
+
+
+Technical skills: 
+
+• Basics of quadcopter kinematics and quadcopter autonomy. 
+
+• Manual control of drone using receiver and transmitter
+
+• ROS, Gazebo, PX4 
+
+• Communication over MAVLINK between Raspberry Pi and Pixhawk 
+
+• Image processing using OpenCV, and Raspberry pi 
+
+• Human detection 
+
+• soldering
+
+
+
+The project can be split into THREE major categories – 
+
+• Hardware and Instrumentation - The total assembly of the drone including the frame, battery, BMS, flight controller, GPS, onboard computer, camera, and other sensors. 
+
+•Software for  Image Processing -Image processing for obstacles and human detection 
+
+•Obstacle Avoidance & Path Planning - Operations to find the best possible route, the real-time scanning of the environment to detect any obstacles along the route.
+
+
+
+A 32-bit headless Raspbian operating system is installed on Raspberry Pi, and it is configured to access over a secure shell (SSH) when raspberry pi is connected to a Wi-Fi network.Receiver-Transmitter is used for calibrating BLDC motors and manual flight control. 
+MAVLINK protocol is used to communicate between Raspberry Pi and Pixhawk using a USB to the b-type serial communication port. 
+A 12V to 5V DC-DC buck converter is used to power Raspberry Pi from Power Distribution Board (PDB). 
+For image processing we have implemented an onboard RPI camera to take live footage using a python script and used Machine Learning algorithms to detect humans using OpenCV, NumPy, and hog features. • Along with human detection, our model is also capable of counting the number of people captured in the camera using the “putText’ function of OpenCV.
+
+
+Challenges Faced:- 
+
+
+1) Some installation issues with OpenCv, RaspberyPi and and got many errors while writing codes. 
+
+2) Did some changes in the code files and changed the changed the software installed earlier.
+
+3) One of the motor was not working properly so had faced difficulties in controlling the drone while takeoff. -Replaced the motor.
+
+4) Compatibility issues with Raspbian OS versions and library installation.
 
 
