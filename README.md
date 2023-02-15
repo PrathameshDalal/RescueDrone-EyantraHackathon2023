@@ -2,6 +2,22 @@
 
 Rescue plans generally last for days considering the current example of Turkey-Syria earthquake where death toll passed 28,000 as rescue hopes dwindle creating a critical shortcoming to the affected once. One of the major challenge is to find the survivors where at least 6,000 buildings collapsed in Turkey and victims are hoping for Miraculous rescues even after 100 hours under rubble. Quick disaster management system by the way of Autonomous Rescue Drones is the approach provide them help at the earliest, as delay may lead to rise in death toll. 
 
+
+The project can be split into THREE major categories – 
+
+• Hardware and Instrumentation - The total assembly of the drone including the frame, battery, BMS, flight controller, GPS, onboard computer, camera, and other sensors. 
+
+•Software for  Image Processing -Image processing for obstacles and human detection 
+
+•Obstacle Avoidance & Path Planning - Operations to find the best possible route, the real-time scanning of the environment to detect any obstacles along the route.
+
+
+A 32-bit headless Raspbian operating system is installed on Raspberry Pi, and it is configured to access over a secure shell (SSH) when raspberry pi is connected to a Wi-Fi network.Receiver-Transmitter is used for calibrating BLDC motors and manual flight control. 
+MAVLINK protocol is used to communicate between Raspberry Pi and Pixhawk using a USB to the b-type serial communication port. 
+A 12V to 5V DC-DC buck converter is used to power Raspberry Pi from Power Distribution Board (PDB). 
+For image processing we have implemented an onboard RPI camera to take live footage using a python script and used Machine Learning algorithms to detect humans using OpenCV, NumPy, and hog features. • Along with human detection, our model is also capable of counting the number of people captured in the camera using the “putText’ function of OpenCV.
+
+
 HARDWARE USED
 
 1)Pixhawk 2.4.8 Drone Flight Controller PX4 32 Bit Autopilot
@@ -88,21 +104,6 @@ Technical skills:
 • soldering
 
 
-
-The project can be split into THREE major categories – 
-
-• Hardware and Instrumentation - The total assembly of the drone including the frame, battery, BMS, flight controller, GPS, onboard computer, camera, and other sensors. 
-
-•Software for  Image Processing -Image processing for obstacles and human detection 
-
-•Obstacle Avoidance & Path Planning - Operations to find the best possible route, the real-time scanning of the environment to detect any obstacles along the route.
-
-
-
-A 32-bit headless Raspbian operating system is installed on Raspberry Pi, and it is configured to access over a secure shell (SSH) when raspberry pi is connected to a Wi-Fi network.Receiver-Transmitter is used for calibrating BLDC motors and manual flight control. 
-MAVLINK protocol is used to communicate between Raspberry Pi and Pixhawk using a USB to the b-type serial communication port. 
-A 12V to 5V DC-DC buck converter is used to power Raspberry Pi from Power Distribution Board (PDB). 
-For image processing we have implemented an onboard RPI camera to take live footage using a python script and used Machine Learning algorithms to detect humans using OpenCV, NumPy, and hog features. • Along with human detection, our model is also capable of counting the number of people captured in the camera using the “putText’ function of OpenCV.
 
 
 Challenges Faced:- 
