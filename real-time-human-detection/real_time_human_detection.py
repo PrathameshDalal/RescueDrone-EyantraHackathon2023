@@ -7,11 +7,6 @@ import imutils
 import time
 import cv2
 
-#parsing argument for using camera (Webcam or PiCamera).
-ap = argparse.ArgumentParser()
-ap.add_argument("-p", "--picamera", type=int, default=-1, help="Whether or not the Raspberry pi camera should be used.")
-args = vars(ap.parse_args())
-
 #Defining Classes 
 CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
 	"bottle", "bus", "car", "cat", "chair", "cow", "diningtable",
